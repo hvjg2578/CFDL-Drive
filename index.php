@@ -23,8 +23,8 @@ else  $page_title = 'Index of ' . $f;
 <!--<?php echo $page_title ?>-->
 <br>
 <div class="container">
-    <div class="typo table-fluid">
-        <table class="table table-hover">
+    <div class="typo subbox table-fluid">
+        <table class="table  table-hover table-striped" style="height:90%;">
             <thead>
                 <tr>
                     <th>文件名</th>
@@ -41,12 +41,12 @@ else  $page_title = 'Index of ' . $f;
                 else $p = dirname($f);
                 if ($rewrite) 
                 {
-                echo '<td><a href="' . $information['site_url'] . $p . '">上级目录</a></td>';
+                echo '<td><i class="mdui-icon material-icons">&#xe317;</i><a href="' . $information['site_url'] . $p . '">&nbsp; 上级目录</a></td>';
                     
                 }
                 else 
                 {
-                    echo '<td><a href="' . $information['site_url'] . '?f=' . $p . '">上级目录</a></td>';
+                    echo '<td><i class="mdui-icon material-icons">&#xe317;</i><a href="' . $information['site_url'] . '?f=' . $p . '">&nbsp; 上级目录</a></td>';
                     
                 }
                 echo '<td>Dir</td><td>' . date("Y-m-d H:i:s", filemtime($localdir . $f)) . '</td>';
