@@ -83,9 +83,11 @@ else  $page_title = 'Index of ' . $f;
                 }
                 
                 ?>
-                
+                </tbody>
+                </table></div></div>
+                <br><br>
 <footer class="navbar navbar-default navbar-fixed-bottom">
-   <div class="container">
+   <div class="container foot-container_2X1Nt">
        <ul> 
       Copyright &copy; 2021    <strong><a href="//www.1314.cool/" target="_blank">Chuanrui </a></strong>&nbsp;
      All Rights Reserved. 备案号：<a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn/"><? echo $information["beian"];?></a>
