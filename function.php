@@ -8,18 +8,12 @@ function scandirs($dirvalue)
                     // $dir = scandir($localdir . 1);
                     foreach ($dir as $value) 
                     {
-                        global $information;
-                        if ($value == "description.html")
-                        {
-                            // $readme=file_get_contents($localdir . $f."/".$value);
-                            $localdirdes=str_replace("./","http://dl.1314.cool/",$localdir . $f."/".$value);
-                            
-                            continue;
-                        }
+                        global $information,$pathdes,$readme;
                         if ($value == "readme.md")
                         {
                             $readme=file_get_contents($localdir . $f."/".$value);
                             // echo $readme;
+                            // echo $localdir . $f."/".$value;
                             
                             continue;
                         }
@@ -177,6 +171,7 @@ function scandirs($dirvalue)
                         }
                         
                     }
+                    
 } 
 
 function get_http_type()
