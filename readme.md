@@ -1,6 +1,6 @@
-# Chuanrui File Directory List System 即Chuanrui 文件目录列表系统
+# Chuanrui File Directory List System 即Chuanrui 文件目录列表系统 简称 CFDL
 
-简称 CFDL
+Chuanrui 文件目录列表系统 简称 CFDL
 
 ### DEMO
 
@@ -71,3 +71,5 @@ Nginx：
 本项目在编写过程中参考的项目：
 
 1. 未知下载站：项目地址：https://gitee.com/mr-wu-code/download-station/
+
+2. 其他项目，例如404页面，我是从百度上看的，没有找到原作者，如果作者看见了，可以给我发邮件，我会把你的项目添上
