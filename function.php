@@ -56,7 +56,7 @@ function scandirs($dirvalue)
                                 if(is_dir($sub_path))
                                 {
                                     
-                                    echo '<td><i class="glyphicon glyphicon-folder-open"></i><a href="' . $information['site_url']  . str_replace("//", "/", $f . '/' . $value) . '" ' . $download_p . '>' ." &nbsp; ". $value . '</a></td>';
+                                    echo '<td><i class="mdui-icon material-icons">&#xe2c7;</i><a href="' . $information['site_url']  . str_replace("//", "/", $f . '/' . $value) . '" ' . $download_p . '>' ." &nbsp; ". $value . '</a></td>';
                                 }
                                 else
                                 {
@@ -116,7 +116,7 @@ function scandirs($dirvalue)
                                 if(is_dir($sub_path))
                                 {
                                     
-                                    echo '<td><i class="glyphicon glyphicon-folder-open"></i><a href="' . $information['site_url'] . '?f=' . str_replace("//", "/", $f . '/' . $value) . '" ' . $download_p . '>' ." &nbsp; ". $value . '</a></td>';
+                                    echo '<td><i class="mdui-icon material-icons">&#xe2c7;</i><a href="' . $information['site_url'] . '?f=' . str_replace("//", "/", $f . '/' . $value) . '" ' . $download_p . '>' ." &nbsp; ". $value . '</a></td>';
                                 }
                                 else
                                 {
