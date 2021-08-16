@@ -100,6 +100,10 @@
   display: inline-block;
 }
 
+a{
+    color: #585858;
+}
+
 .option.is-blue {
   background-color: #bceefd;
 }
