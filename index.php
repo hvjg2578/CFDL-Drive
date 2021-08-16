@@ -3,6 +3,7 @@
 <?php
 error_reporting(0);
 include('header.php');
+include("Parsedown.php");
 $imgnum=1;
 error_reporting(0);
 $f = str_replace("//", "/", $_GET['f']);
@@ -82,9 +83,20 @@ else  $page_title = 'Index of ' . $f;
                     }
                 }
                 
-                ?>
+                 ?>
                 </tbody>
                 </table></div></div>
+                <?php 
+                  if($readme!="")
+                  {
+                    //   echo "</tbody></table></div><br></div>";
+                    echo "<div class=container>";
+                      echo "<div class='typo subbox table-fluid'>";
+                      echo "<table class='table  table-hover table-striped' style='height:90%;'><tr><th>readme.md</th></tr><tr><td>";
+                      $Parsedown = new Parsedown();
+                    echo $Parsedown->text($readme); 
+                echo "</td></tr></table></div></div>";
+                }?>
                 <br><br>
 <footer class="navbar navbar-default navbar-fixed-bottom">
    <div class="container foot-container_2X1Nt">
