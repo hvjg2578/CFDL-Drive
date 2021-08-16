@@ -17,9 +17,8 @@ http://demo.cfdl.1314.cool/
 
 ### 项目Git仓库
 
-Github仓库：https://gitee.com/mr-wu-code/download-station
+GitHub仓库：https://github.com/hvjg2578/CFDL-Drive
 
-Gitee仓库：https://github.com/unknown-o/download-station
 
 ### 这是一个非常简洁的说明
 
