@@ -1,7 +1,9 @@
 <?php 
-// include("config.php"); 
-// include("header.php")
+//本程序由Chuanrui（hvjg2578）编写
+//尊重版权，请勿删除页脚“Powered By”提示
 include("function.php");
+include("config.php");
+include("Parsedown.php");
 global $information;
 ?>
 <!DOCTYPE html>
@@ -18,6 +20,116 @@ global $information;
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"/>
+	<style>
+	div
+{
+	/*width:100px;*/
+	/*height:100px;*/
+	/*background:red;*/
+	/*visibility: hidden;*/
+	/*opacity: 1;
+	animation:myfirst 0.5s;*/
+	/*-moz-animation:myfirst 0.5s; /* Firefox */
+	/*-webkit-animation:myfirst 0.5s;  Safari and Chrome */
+	/*-o-animation:myfirst 0.5s;  Opera */
+}
+* {
+  box-sizing: border-box;
+}
+
+.subbox table {
+  /*max-width: 800px;*/
+   /*border-radius: 25px;*/
+  margin: 40px auto;
+  text-align: left;
+  border-spacing: 0;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.subbox td {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid #f4f4f4;
+  /*display: block;*/
+}
+
+.subbox th {
+  padding: 16px;
+}
+
+.subbox img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.subbox tr:last-child > td {
+  border: 0;
+}
+
+.subbox tbody > tr:hover {
+  background-color: rgba(221, 221, 221, 0.2);
+}
+
+.subbox thead {
+  text-transform: uppercase;
+  font-size: 12px;
+  background-color: #efefef;
+  letter-spacing: 0.5px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.option {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #ddd;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.name {
+  min-width: 110px;
+  display: inline-block;
+}
+
+.comment {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+  display: inline-block;
+}
+
+a{
+    color: #585858;
+    /*display: block;*/
+    /*text-decoration:none;*/
+}
+a:hover,a:active
+{
+	/*background-color:#7A991A;*/
+	text-decoration:none;
+}
+
+.option.is-blue {
+  background-color: #bceefd;
+}
+
+.option.is-orange {
+  background-color: #ffd89e;
+}
+
+.option.is-purple {
+  background-color: #e9cbff;
+}
+
+.option.is-green {
+  background-color: #bef1a9;
+}
+	</style>
 </head>
 <body>
 <script src="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
@@ -50,7 +162,7 @@ global $information;
    }
    else
    {
-       echo "<a class='btn btn-warning' href=".$information['site_url']."?f=" .urlencode($_GET['url']) .'>'."下载此文件</a>";
+       echo "<a class='btn btn-warning' href='".$information['site_url']."?f=" .urlencode($_GET['url'])."'" .'>'."下载此文件</a>";
    }
   
   if(checkvalue(".jpg",$_GET['url']) || checkvalue(".png",$_GET['url']) || checkvalue(".gif",$_GET['url']))
@@ -77,6 +189,17 @@ global $information;
         $fileurl= "https://view.officeapps.live.com/op/embed.aspx?src=".$srcurl;
         echo "<div class=container style=height:700px><iframe  width='100%' height='800px' frameborder='0' src='".$fileurl."'".'>'."</iframe></div>";
  
+  }
+  else if(checkvalue(".md",$_GET['url']))
+  {
+        $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        $mdfile=file_get_contents($srcurl);
+        echo "<div class=container>";
+                      echo "<div class='typo subbox table-fluid'>";
+                      echo "<table class='table  table-hover table-striped' style='height:90%;'><tr><th>MarkDown文件</th></tr><tr><td>";
+                      $Parsedown = new Parsedown();
+                    echo $Parsedown->text($mdfile); 
+                echo "</td></tr></table></div></div>";
   }
    
 ?>
