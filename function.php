@@ -1,6 +1,6 @@
-<?php 
-include("config.php");
-
+<?php
+//本程序由Chuanrui（hvjg2578）编写
+//尊重版权，请勿删除页脚“Powered By”提示
 function scandirs($dirvalue)
 {
     global $localdir,$f,$rewrite,$information;
@@ -89,7 +89,15 @@ function scandirs($dirvalue)
                                         $siteurl=urlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
-                                    } else 
+                                    }
+                                    else if(checkvalue(".md",$value))
+                                    {
+                                        $siteurl=str_replace("//", "/", $f . '/' . $value);
+                                        $siteurl=urlencode($siteurl);
+                                        $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
+                                        printbutton($value,$imgurl);
+                                    } 
+                                    else 
                                     {
                                         if($rewrite==true)
                                         {
@@ -149,7 +157,15 @@ function scandirs($dirvalue)
                                         $siteurl=urlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
-                                    } else
+                                    }
+                                    else if(checkvalue(".md",$value))
+                                    {
+                                        $siteurl=str_replace("//", "/", $f . '/' . $value);
+                                        $siteurl=urlencode($siteurl);
+                                        $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
+                                        printbutton($value,$imgurl);
+                                    } 
+                                    else
                                     {
                                         if($rewrite==true)
                                         {
@@ -185,18 +201,24 @@ function printbutton($value,$imgurl)
     if(checkvalue(".png",$value)||checkvalue(".jpg",$value)||checkvalue(".gif",$value))
     {
         print<<<EOT
-<td><i class="mdui-icon material-icons">&#xe3f4;</i><a href=$imgurl> &nbsp;  $value</a></td>
+<td><i class="mdui-icon material-icons">&#xe1bc;</i><a href=$imgurl> &nbsp;  $value</a></td>
 EOT;
     }else if (checkvalue(".mp4",$value)||checkvalue(".webp",$value)||checkvalue(".gif",$value))
     {
         print<<<EOT
-<td><i class="mdui-icon material-icons">&#xe04b;</i><a href=$imgurl> &nbsp;  $value</a></td>
+<td><i class="mdui-icon material-icons">&#xe639;</i><a href=$imgurl> &nbsp;  $value</a></td>
 EOT;
     }
     else if (checkvalue(".mp3",$value)||checkvalue(".wav",$value)||checkvalue(".mid",$value)||checkvalue(".aiff",$value)||checkvalue(".midi",$value)||checkvalue(".au",$value)||checkvalue(".m4a",$value))
     {
         print<<<EOT
 <td><i class="mdui-icon material-icons">&#xe405;</i><a href=$imgurl> &nbsp;  $value</a></td>
+EOT;
+    }
+    else if (checkvalue(".md",$value))
+    {
+        print<<<EOT
+<td><i class="mdui-icon material-icons">&#xe23f;</i><a href=$imgurl> &nbsp;  $value</a></td>
 EOT;
     }
     else
