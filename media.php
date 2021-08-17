@@ -10,7 +10,7 @@ global $information;
 <html lang="zh-cmn-Hans">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="gb2312">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title><?php global $information; echo $information['site_title']; ?></title>
@@ -20,6 +20,8 @@ global $information;
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"/>
+	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/css/prettify.js"></script>
 	<style>
 	div
 {
@@ -131,7 +133,7 @@ a:hover,a:active
 }
 	</style>
 </head>
-<body>
+<body onload="prettyPrint()">
 <script src="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
 <script>
     function goup()
@@ -154,15 +156,15 @@ a:hover,a:active
 	</div>
 </nav>
 <?php
-   echo "<div class=container>";
+  echo "<div class=container>";
    echo "<a class='btn btn-warning' onclick=goup() >返回上一级</a>";
    if($rewrite)
    {
-       echo "<a class='btn btn-warning' href='".$information['site_url'] .$_GET['url'] ."'".'>'."下载此文件</a>";
+       echo "<a class='btn btn-success' href='".$information['site_url'] .$_GET['url'] ."'".'>'."下载此文件</a>";
    }
    else
    {
-       echo "<a class='btn btn-warning' href='".$information['site_url']."?f=" .urlencode($_GET['url'])."'" .'>'."下载此文件</a>";
+       echo "<a class='btn btn-success' href='".$information['site_url']."?f=" .urlencode($_GET['url'])."'" .'>'."下载此文件</a>";
    }
   
   if(checkvalue(".jpg",$_GET['url']) || checkvalue(".png",$_GET['url']) || checkvalue(".gif",$_GET['url']))
@@ -194,13 +196,51 @@ a:hover,a:active
   {
         $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
         $mdfile=file_get_contents($srcurl);
+        $mdfile=strToUtf8($mdfile);
         echo "<div class=container>";
-                      echo "<div class='typo subbox table-fluid'>";
-                      echo "<table class='table  table-hover table-striped' style='height:90%;'><tr><th>MarkDown文件</th></tr><tr><td>";
-                      $Parsedown = new Parsedown();
-                    echo $Parsedown->text($mdfile); 
-                echo "</td></tr></table></div></div>";
+        echo "<div class='typo subbox table-fluid'>";
+        echo "<table class='table  table-hover table-striped' style='height:90%;'><tr><th>MarkDown文件</th></tr><tr><td>";
+        $Parsedown = new Parsedown();
+        echo $Parsedown->text($mdfile); 
+        echo "</td></tr></table></div></div>";
+  }
+  else if(checkvalue(".txt",$_GET['url']))
+  {
+        $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        $handle = fopen($localdir.$_GET["url"],"r");
+        $content = '';
+        while(!feof($handle)){
+        $content .= fread($handle, 8080);
+        }
+        fclose($handle);
+        echo "<div class=container>";
+        echo "<div class='typo subbox table-fluid'>";
+        echo "<table class='table  table-hover table-striped' style='height:90%;'><tr><th>TXT文本文件</th></tr><tr><td>";
+        $content=strToUtf8($content);
+        echo str_replace("\r\n","<br />",$content);; 
+        echo "</td></tr></table></div></div>";
+  }
+  else if(checkvalue(".cpp",$_GET['url'])||checkvalue(".c",$_GET['url'])||checkvalue(".java",$_GET['url'])||checkvalue(".cs",$_GET['url'])||checkvalue(".py",$_GET['url'])||checkvalue(".h",$_GET['url'])||checkvalue(".hpp",$_GET['url'])||checkvalue(".hxx",$_GET['url'])||checkvalue(".cc",$_GET['url'])||checkvalue(".cxx",$_GET['url'])||checkvalue(".html",$_GET['url'])||checkvalue(".css",$_GET['url'])||checkvalue(".php",$_GET['url'])||checkvalue(".vbp",$_GET['url'])||checkvalue(".frm",$_GET['url'])||checkvalue(".ctl",$_GET['url'])||checkvalue(".bas",$_GET['url'])||checkvalue(".cls",$_GET['url'])||checkvalue(".sql",$_GET['url'])||checkvalue(".go",$_GET['url'])||checkvalue(".json",$_GET['url'])||checkvalue(".sh",$_GET['url'])||checkvalue(".htm",$_GET['url'])||checkvalue(".cmd",$_GET['url'])||checkvalue(".bat",$_GET['url']))
+  {
+        $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        echo "<div class=container>";
+        echo "<div class='typo subbox table-fluid'>";
+        echo "<table class='table  table-hover table-striped' style='height:90%;'><tr><th>Code</th></tr><tr><td><pre width=100% class='prettyprint linenums'>";
+        $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        $handle = fopen($localdir.$_GET["url"], 'r');
+        $codefile = '';
+        while(!feof($handle)){
+        $codefile .= fread($handle, 8080);
+        }
+        fclose($handle);
+        // $content=urlencode($content);
+        // $codefile= str_replace("\r\n","<br />",$codefile);
+        $codefile= str_replace("<","&lt;",$codefile);
+        $codefile= str_replace(">","&gt;",$codefile);
+        echo strToUtf8($codefile);
+                echo "</pre></td></tr></table></div></div>";
   }
    
 ?>
+</div>
 </body>
