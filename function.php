@@ -97,6 +97,20 @@ function scandirs($dirvalue)
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     } 
+                                    else if(checkvalue(".txt",$value))
+                                    {
+                                        $siteurl=str_replace("//", "/", $f . '/' . $value);
+                                        $siteurl=urlencode($siteurl);
+                                        $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
+                                        printbutton($value,$imgurl);
+                                    }
+                                    else if(checkvalue(".cpp",$value)||checkvalue(".c",$value)||checkvalue(".java",$value)||checkvalue(".cs",$value)||checkvalue(".py",$value)||checkvalue(".h",$value)||checkvalue(".hpp",$value)||checkvalue(".hxx",$value)||checkvalue(".cc",$value)||checkvalue(".cxx",$value)||checkvalue(".html",$value)||checkvalue(".css",$value)||checkvalue(".php",$value)||checkvalue(".vbp",$value)||checkvalue(".frm",$value)||checkvalue(".ctl",$value)||checkvalue(".bas",$value)||checkvalue(".cls",$value)||checkvalue(".sql",$value)||checkvalue(".go",$value)||checkvalue(".json",$value)||checkvalue(".sh",$value)||checkvalue(".htm",$value)||checkvalue(".bat",$value)||checkvalue(".cmd",$value))
+                                    {
+                                        $siteurl=str_replace("//", "/", $f . '/' . $value);
+                                        $siteurl=urlencode($siteurl);
+                                        $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
+                                        printbutton($value,$imgurl);
+                                    }
                                     else 
                                     {
                                         if($rewrite==true)
@@ -165,6 +179,20 @@ function scandirs($dirvalue)
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     } 
+                                    else if(checkvalue(".txt",$value))
+                                    {
+                                        $siteurl=str_replace("//", "/", $f . '/' . $value);
+                                        $siteurl=urlencode($siteurl);
+                                        $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
+                                        printbutton($value,$imgurl);
+                                    }
+                                    else if(checkvalue(".cpp",$value)||checkvalue(".c",$value)||checkvalue(".java",$value)||checkvalue(".cs",$value)||checkvalue(".py",$value)||checkvalue(".h",$value)||checkvalue(".hpp",$value)||checkvalue(".hxx",$value)||checkvalue(".cc",$value)||checkvalue(".cxx",$value)||checkvalue(".html",$value)||checkvalue(".css",$value)||checkvalue(".php",$value)||checkvalue(".vbp",$value)||checkvalue(".frm",$value)||checkvalue(".ctl",$value)||checkvalue(".bas",$value)||checkvalue(".cls",$value)||checkvalue(".sql",$value)||checkvalue(".go",$value)||checkvalue(".json",$value)||checkvalue(".sh",$value)||checkvalue(".htm",$value)||checkvalue(".bat",$value)||checkvalue(".cmd",$value))
+                                    {
+                                        $siteurl=str_replace("//", "/", $f . '/' . $value);
+                                        $siteurl=urlencode($siteurl);
+                                        $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
+                                        printbutton($value,$imgurl);
+                                    }
                                     else
                                     {
                                         if($rewrite==true)
@@ -221,6 +249,18 @@ EOT;
 <td><i class="mdui-icon material-icons">&#xe23f;</i><a href=$imgurl> &nbsp;  $value</a></td>
 EOT;
     }
+    else if (checkvalue(".txt",$value))
+    {
+        print<<<EOT
+<td><i class="mdui-icon material-icons">&#xe264;</i><a href=$imgurl> &nbsp;  $value</a></td>
+EOT;
+    }
+    else if (checkvalue(".cpp",$value)||checkvalue(".c",$value)||checkvalue(".java",$value)||checkvalue(".cs",$value)||checkvalue(".py",$value)||checkvalue(".h",$value)||checkvalue(".hpp",$value)||checkvalue(".hxx",$value)||checkvalue(".cc",$value)||checkvalue(".cxx",$value)||checkvalue(".html",$value)||checkvalue(".css",$value)||checkvalue(".php",$value)||checkvalue(".vbp",$value)||checkvalue(".frm",$value)||checkvalue(".ctl",$value)||checkvalue(".bas",$value)||checkvalue(".cls",$value)||checkvalue(".sql",$value)||checkvalue(".go",$value)||checkvalue(".json",$value)||checkvalue(".sh",$value)||checkvalue(".htm",$value)||checkvalue(".bat",$value)||checkvalue(".cmd",$value))
+    {
+        print<<<EOT
+<td><i class="mdui-icon material-icons">&#xe86f;</i><a href=$imgurl> &nbsp;  $value</a></td>
+EOT;
+    }
     else
     {
         print<<<EOT
@@ -274,4 +314,12 @@ function size_unit($num){
     }
     $num /= pow(1024, $p);
     return number_format($num, 3).' '.$format;
+}
+function strToUtf8($str){
+    $encode = mb_detect_encoding($str, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+    if($encode == 'UTF-8'){
+        return $str;
+    }else{
+        return mb_convert_encoding($str, 'UTF-8', $encode);
+    }
 }
