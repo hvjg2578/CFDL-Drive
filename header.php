@@ -1,4 +1,3 @@
-<?php include('function.php') ?>
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 
@@ -15,6 +14,49 @@
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"/>
 	<style>
+	div
+{
+	/*width:100px;*/
+	/*height:100px;*/
+	/*background:red;*/
+	/*visibility: hidden;*/
+	/*opacity: 1;
+	animation:myfirst 0.5s;*/
+	/*-moz-animation:myfirst 0.5s; /* Firefox */
+	/*-webkit-animation:myfirst 0.5s;  Safari and Chrome */
+	/*-o-animation:myfirst 0.5s;  Opera */
+}
+	@keyframes myfirst
+{
+	0%   {width:0px;visibility: hidden;opacity: 1;}
+	/*25%  {display:none;}*/
+	/*50%  {background:blue;}*/
+	100% {width:100%;visibility: visible;opacity: 1;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+	0%   {background:red;}
+	/*25%  {background:yellow;}*/
+	/*50%  {background:blue;}*/
+	100% {background:green;}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+	0%   {background:red;}
+	/*25%  {background:yellow;}*/
+	/*50%  {background:blue;}*/
+	100% {background:green;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+	0%   {background:red;}
+	/*25%  {background:yellow;}*/
+	/*50%  {background:blue;}*/
+	100% {background:green;}
+}
 	
 .footer-V{
     background: #333;
@@ -38,6 +80,7 @@
 
 .subbox table {
   /*max-width: 800px;*/
+   /*border-radius: 25px;*/
   margin: 40px auto;
   text-align: left;
   border-spacing: 0;
@@ -52,6 +95,7 @@
   padding: 8px 16px;
   font-size: 14px;
   border-bottom: 1px solid #f4f4f4;
+  /*display: block;*/
 }
 
 .subbox th {
@@ -102,6 +146,13 @@
 
 a{
     color: #585858;
+    /*display: block;*/
+    /*text-decoration:none;*/
+}
+a:hover,a:active
+{
+	/*background-color:#7A991A;*/
+	text-decoration:none;
 }
 
 .option.is-blue {
@@ -126,7 +177,7 @@ a{
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#"><? echo $information["site_title"];?></a>
+		<a class="navbar-brand" href="#"><? echo $information["site_title"]; ?></a>
 	</div>
 	<div>
 		<ul class="nav navbar-nav">
