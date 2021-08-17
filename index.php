@@ -1,14 +1,17 @@
-<!--本程序由Chuanrui（hvjg2578）编写-->
-<!--尊重版权，请勿删除Powered By版权提示-->
 <?php
-error_reporting(0);
-include('header.php');
-include("Parsedown.php");
-$imgnum=1;
-error_reporting(0);
-$f = str_replace("//", "/", $_GET['f']);
-if (!is_dir($localdir . $f)) {
-    if (file_exists($localdir . $f)) {
+//本程序由Chuanrui（hvjg2578）编写
+//尊重版权，请勿删除页脚“Powered By”提示
+include("function.php");
+include('config.php');
+if($rewrite==false and $_SERVER['REQUEST_URI']=="/")
+{
+    header("Location: ".$information["site_url"]."/?f=");
+}
+$f = str_replace("//", "/", $_REQUEST["f"]);
+if (!is_dir($localdir . $f)) 
+{
+    if (file_exists($localdir . $f)) 
+    {
         include('download.php');
         exit;
     } else {
@@ -16,6 +19,9 @@ if (!is_dir($localdir . $f)) {
         exit;
     }
 }
+include("header.php");
+include("Parsedown.php");
+$imgnum=1;
 
 if (empty($f)) $page_title = 'Index of /';
 else  $page_title = 'Index of ' . $f;
@@ -89,7 +95,6 @@ else  $page_title = 'Index of ' . $f;
                 <?php 
                   if($readme!="")
                   {
-                    //   echo "</tbody></table></div><br></div>";
                     echo "<div class=container>";
                       echo "<div class='typo subbox table-fluid'>";
                       echo "<table class='table  table-hover table-striped' style='height:90%;'><tr><th>readme.md</th></tr><tr><td>";
