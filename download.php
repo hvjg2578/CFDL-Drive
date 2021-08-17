@@ -1,5 +1,6 @@
 <?php
-// 将发送到客户端的本地文件 
+//本程序由Chuanrui（hvjg2578）编写
+//尊重版权，请勿删除页脚“Powered By”提示
 $local_file=$localdir.$f;
 $download_file=pathinfo($f)['basename']; 
 if($download_file==$information['Dirpassword'])//防止恶意下载密码文件破解文件夹密码
@@ -8,7 +9,6 @@ if($download_file==$information['Dirpassword'])//防止恶意下载密码文件�
 }
 // 设置下载速率
 $download_rate=$information["download_max_speed"]; 
-
 if(file_exists($local_file)&&is_file($local_file)){ 
     header('Cache-control: private');// 发送 headers 
     header('Content-Type: application/octet-stream'); 
