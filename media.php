@@ -169,7 +169,7 @@ a:hover,a:active
   
   if(checkvalue(".jpg",$_GET['url']) || checkvalue(".png",$_GET['url']) || checkvalue(".gif",$_GET['url']))
   {
-      echo "<img height=100% src='".$information['site_url'] .$_GET['url']."'" .'>'."</img></div>";
+      echo "<img height=100% src='".$information['site_url'] .str_replace("./","/",$localdir).$_GET['url']."'" .'>'."</img></div>";
   }
   else if(checkvalue(".mp4",$_GET['url']) || checkvalue(".webp",$_GET['url']) || checkvalue(".ogg",$_GET['url']))
   {
@@ -233,8 +233,6 @@ a:hover,a:active
         $codefile .= fread($handle, 8080);
         }
         fclose($handle);
-        // $content=urlencode($content);
-        // $codefile= str_replace("\r\n","<br />",$codefile);
         $codefile= str_replace("<","&lt;",$codefile);
         $codefile= str_replace(">","&gt;",$codefile);
         echo strToUtf8($codefile);
