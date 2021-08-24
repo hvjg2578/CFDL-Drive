@@ -22,6 +22,7 @@ global $information;
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"/>
 	<link href="/css/prettify.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="/css/prettify.js"></script>
+	<script src="/css/html5media.min.js"></script> 
 	<style>
 	div
 {
@@ -169,7 +170,7 @@ a:hover,a:active
   
   if(checkvalue(".jpg",$_GET['url']) || checkvalue(".png",$_GET['url']) || checkvalue(".gif",$_GET['url']))
   {
-      echo "<img height=100% src='".$information['site_url'] .str_replace("./","/",$localdir).$_GET['url']."'" .'>'."</img></div>";
+      echo "<img height=100% src='".$information['site_url'] .$_GET['url']."'" .'>'."</img></div>";
   }
   else if(checkvalue(".mp4",$_GET['url']) || checkvalue(".webp",$_GET['url']) || checkvalue(".ogg",$_GET['url']))
   {
@@ -182,7 +183,7 @@ a:hover,a:active
   }
   else if(checkvalue(".mp3",$_GET['url'])||checkvalue(".wav",$_GET['url'])||checkvalue(".mid",$_GET['url'])||checkvalue(".midi",$_GET['url'])||checkvalue(".aiff",$_GET['url'])||checkvalue(".au",$_GET['url'])||checkvalue(".m4a",$_GET['url']))
   {
-      echo "<embed controls autoplay width=100% src='".$information['site_url'] .str_replace("./","/",$localdir).$_GET['url'] ."'".'>'."</video></div>";
+      echo "<div class=container><audio controls autoplay width=100% src='".$information['site_url'] .str_replace("./","/",$localdir).$_GET['url'] ."'".'>'."</audio></div>";
   }
   else if(checkvalue(".ppt",$_GET['url']) ||checkvalue(".pptx",$_GET['url'])||checkvalue(".doc",$_GET['url']) ||checkvalue(".docx",$_GET['url'])||checkvalue(".xls",$_GET['url'])||checkvalue(".xlsx",$_GET['url']))
   {
@@ -233,6 +234,8 @@ a:hover,a:active
         $codefile .= fread($handle, 8080);
         }
         fclose($handle);
+        // $content=urlencode($content);
+        // $codefile= str_replace("\r\n","<br />",$codefile);
         $codefile= str_replace("<","&lt;",$codefile);
         $codefile= str_replace(">","&gt;",$codefile);
         echo strToUtf8($codefile);
