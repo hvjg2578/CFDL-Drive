@@ -31,7 +31,7 @@ else  $page_title = 'Index of ' . $f;
 <br>
 <div class="container">
     <div class="typo subbox table-fluid">
-        <table class="table  table-hover table-striped" style="height:90%;">
+        <table class="table  table-hover" style="height:90%;">
             <thead>
                 <tr>
                     <th>文件名</th>
