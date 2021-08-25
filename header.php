@@ -84,25 +84,6 @@
   box-sizing: border-box;
 }
 
-.subbox #view a, #view a:active, #view a:visited {
-    display: block;
-    color: inherit;
-    cursor: pointer;
-    text-decoration: none;
-        text-decoration-line: none;
-        text-decoration-style: solid;
-        text-decoration-color: currentcolor;
-        text-decoration-thickness: auto;
-}
-.subbox td {
-    list-style: none;
-        list-style-position: outside;
-        list-style-image: none;
-        list-style-type: none;
-}
-.subbox td {
-    white-space: nowrap;
-}
 .subbox table {
   /*max-width: 800px;*/
    /*border-radius: 25px;*/
