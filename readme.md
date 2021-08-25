@@ -49,18 +49,14 @@ GitHub仓库：https://github.com/hvjg2578/CFDL-Drive
 
 Nginx：
 
-if (!-f $request_filename)
-
-{
-     rewrite '^(.*)$' /index.php?f=$1;
-
-}
-
-if (-f $request_filename)
-
-{
-     
-}
+if (!-f $request_filename)<br>
+{<br>
+     rewrite '^(.*)$' /index.php?f=$1;<br>
+}<br>
+if (-f $request_filename)<br>
+{<br>
+<br>
+}<br>
 
 然后更改config.php的rewrite选项为true
 
