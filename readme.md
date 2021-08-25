@@ -48,12 +48,10 @@ GitHub仓库：https://github.com/hvjg2578/CFDL-Drive
 3.如果要开启伪静态，请填写如下伪静态规则(请2021年8月25日下载之前的朋友更新伪静态规则，之前的规则有点问题)：
 
 Nginx：
-<code>
 
 if (!-f $request_filename)
 
 {
-
      rewrite '^(.*)$' /index.php?f=$1;
 
 }
@@ -64,7 +62,6 @@ if (-f $request_filename)
      
 }
 
-</code>
 然后更改config.php的rewrite选项为true
 
 ### 注意
