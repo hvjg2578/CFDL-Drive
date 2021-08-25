@@ -49,13 +49,13 @@ GitHub仓库：https://github.com/hvjg2578/CFDL-Drive
 
 Nginx：
 
-location /
+if (!-f $request_filename)
 {
-	 	 try_files $uri /index.php?f=$uri&args=$args;
+     rewrite '^(.*)$' /index.php?f=$1;
 }
-location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|js|css)$
+if (-f $request_filename)
 {
-      try_files $uri /index.php?f=$uri&args=$args;
+     
 }
 
 
