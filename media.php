@@ -170,7 +170,7 @@ video {
    echo "<a class='btn btn-warning' onclick=goup() >返回上一级</a>";
    if($rewrite)
    {
-       echo "<a class='btn btn-success' href='".$information['site_url'] .$_GET['url'] ."'".'>'."下载此文件</a>";
+       echo "<a class='btn btn-success' href='".$information['site_url'] .$_GET['url']."'".'>'."下载此文件</a>";
    }
    else
    {
@@ -243,8 +243,6 @@ video {
         $codefile .= fread($handle, 8080);
         }
         fclose($handle);
-        // $content=urlencode($content);
-        // $codefile= str_replace("\r\n","<br />",$codefile);
         $codefile= str_replace("<","&lt;",$codefile);
         $codefile= str_replace(">","&gt;",$codefile);
         echo strToUtf8($codefile);
