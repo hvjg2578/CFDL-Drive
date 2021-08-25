@@ -10,7 +10,7 @@ global $information;
 <html lang="zh-cmn-Hans">
 
 <head>
-    <meta charset="gb2312">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title><?php global $information; echo $information['site_title']; ?></title>
@@ -117,6 +117,15 @@ a:hover,a:active
 	text-decoration:none;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
 .option.is-blue {
   background-color: #bceefd;
 }
@@ -168,13 +177,13 @@ a:hover,a:active
        echo "<a class='btn btn-success' href='".$information['site_url']."?f=" .urlencode($_GET['url'])."'" .'>'."下载此文件</a>";
    }
   
-  if(checkvalue(".jpg",$_GET['url']) || checkvalue(".png",$_GET['url']) || checkvalue(".gif",$_GET['url']))
+  if(checkvalue(".jpg",$_GET['url']) || checkvalue(".png",$_GET['url']) || checkvalue(".gif",$_GET['url']) || checkvalue(".jpeg",$_GET['url'])|| checkvalue(".bmp",$_GET['url']))
   {
-      echo "<img height=100% src='".$information['site_url'] .$_GET['url']."'" .'>'."</img></div>";
+      echo "<div class=container><img src='".$information['site_url'] .str_replace("./","/",$localdir.$_GET['url']) ."'" .'>'."</img></div></div>";
   }
   else if(checkvalue(".mp4",$_GET['url']) || checkvalue(".webp",$_GET['url']) || checkvalue(".ogg",$_GET['url']))
   {
-      echo "<video controls autoplay width=100% src='".$information['site_url'] .str_replace("./","/",$localdir.$_GET['url']) ."'".'>'."</video></div>";
+      echo "<div class=container><video controls autoplay src='".$information['site_url'] .str_replace("./","/",$localdir.$_GET['url']) ."'".'>'."</video></div></div>";
   }
   else if(checkvalue(".xml",$_GET['url']))
   {
