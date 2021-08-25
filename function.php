@@ -54,7 +54,7 @@ function scandirs($dirvalue)
                                 }
                                 else
                                 {
-                                 if(checkvalue(".png",$value)==true || checkvalue(".jpg",$value)==true || checkvalue(".gif",$value)==true)
+                                 if(checkvalue(".png",$value)==true || checkvalue(".jpg",$value)==true || checkvalue(".gif",$value)==true|| checkvalue(".jpeg",$value)==true || checkvalue(".bmp",$value)==true)
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
                                         $siteurl=urlencode($siteurl);
@@ -136,7 +136,7 @@ function scandirs($dirvalue)
                                 }
                                 else
                                 {
-                                    if(checkvalue(".png",$value)==true || checkvalue(".jpg",$value)==true || checkvalue(".gif",$value)==true)
+                                    if(checkvalue(".png",$value)==true || checkvalue(".jpg",$value)==true || checkvalue(".gif",$value)==true|| checkvalue(".jpeg",$value)==true || checkvalue(".bmp",$value)==true)
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
                                         $siteurl=urlencode($siteurl);
