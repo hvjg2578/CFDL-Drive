@@ -50,11 +50,15 @@ GitHub仓库：https://github.com/hvjg2578/CFDL-Drive
 Nginx：
 
 if (!-f $request_filename)
+
 {
+
      rewrite '^(.*)$' /index.php?f=$1;
+     
 }
 
 if (-f $request_filename)
+
 {
      
 }
