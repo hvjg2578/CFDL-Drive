@@ -84,6 +84,25 @@
   box-sizing: border-box;
 }
 
+.subbox #view a, #view a:active, #view a:visited {
+    display: block;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+        text-decoration-line: none;
+        text-decoration-style: solid;
+        text-decoration-color: currentcolor;
+        text-decoration-thickness: auto;
+}
+.subbox td {
+    list-style: none;
+        list-style-position: outside;
+        list-style-image: none;
+        list-style-type: none;
+}
+.subbox td {
+    white-space: nowrap;
+}
 .subbox table {
   /*max-width: 800px;*/
    /*border-radius: 25px;*/
@@ -118,7 +137,11 @@
 }
 
 .subbox tbody > tr:hover {
-  background-color: rgba(221, 221, 221, 0.2);
+  background-color: rgba(221, 221, 221, 0.6);
+  /*box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);*/
+ box-shadow:2 5px 10px 0 rgba(0,0,0,0.1);
+ opacity:1;
+ /*background:rgba(27,27,27,0.8)*/
 }
 
 .subbox thead {
