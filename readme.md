@@ -45,14 +45,19 @@ GitHub仓库：https://github.com/hvjg2578/CFDL-Drive
 
 2. 配置config.php文件内的内容
 
-3.如果要开启伪静态，请填写如下伪静态规则：
+3.如果要开启伪静态，请填写如下伪静态规则(请2021年8月12日下载之前的朋友更新伪静态规则，之前的规则有点问题)：
 
 Nginx：
 
- location /
+location /
 {
-	  try_files $uri /index.php?f=$uri&args=$args;
+	 	 try_files $uri /index.php?f=$uri&args=$args;
 }
+location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|js|css)$
+{
+      try_files $uri /index.php?f=$uri&args=$args;
+}
+
 
 然后更改config.php的rewrite选项为true
 
