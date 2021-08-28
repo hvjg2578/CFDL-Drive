@@ -44,8 +44,8 @@ else  $page_title = 'Index of ' . $f;
                 $localdirdes="";
                 $readme="";
                 // include("function.php");
-                if (dirname($f) == '/') $p = '';
-                else $p = dirname($f);
+                if (dirname(urldecode($f)) == '/') $p = '';
+                else $p = rawurlencode(dirname($f));
                 if ($rewrite) 
                 {
                 echo '<td><i class="mdui-icon material-icons">&#xe317;</i><a href="' . $information['site_url'] . $p . '">&nbsp; 上级目录</a></td>';
