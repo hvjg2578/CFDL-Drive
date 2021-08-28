@@ -170,21 +170,21 @@ video {
    echo "<a class='btn btn-warning' onclick=goup() >返回上一级</a>";
    if($rewrite)
    {
-       echo "<a class='btn btn-success' href='".$information['site_url'] ."/".urlencode(substr_replace($_GET['url'],"",0,1))."'".'>'."下载此文件</a>";
+       echo "<a class='btn btn-success' href='".$information['site_url'] ."/".rawurlencode(substr_replace(urldecode($_GET['url']),"",0,1))."'".'>'."下载此文件</a>";
    }
    else
    {
-       echo "<a class='btn btn-success' href='".$information['site_url']."?f=" .urlencode($_GET['url'])."'" .'>'."下载此文件</a>";
+       echo "<a class='btn btn-success' href='".$information['site_url']."?f=" ."/".rawurlencode(substr_replace($_GET['url'],"",0,1))."'" .'>'."下载此文件</a>";
    }
   
   if(checkvalue(".jpg",$_GET['url']) || checkvalue(".png",$_GET['url']) || checkvalue(".gif",$_GET['url']) || checkvalue(".jpeg",$_GET['url'])|| checkvalue(".bmp",$_GET['url']))
   {
-      
+      $url=$information['site_url'] .str_replace("./","/",$localdir)."/".rawurlencode(substr_replace(urldecode($_GET['url']),"",0,1));
       echo "<div class=container><img src='".$url ."'" .'>'."</img></div></div>";
   }
   else if(checkvalue(".mp4",$_GET['url']) || checkvalue(".webp",$_GET['url']) || checkvalue(".ogg",$_GET['url']))
   {
-      $url=$information['site_url'] .str_replace("./","/",$localdir).urlencode($_GET['url']);
+      $url=$information['site_url'] .str_replace("./","/",$localdir)."/".rawurlencode(substr_replace(urldecode($_GET['url']),"",0,1));
       echo "<div class=container><video controls autoplay src='".$url ."'".'>'."</video></div></div>";
   }
   else if(checkvalue(".xml",$_GET['url']))
@@ -194,20 +194,21 @@ video {
   }
   else if(checkvalue(".mp3",$_GET['url'])||checkvalue(".wav",$_GET['url'])||checkvalue(".mid",$_GET['url'])||checkvalue(".midi",$_GET['url'])||checkvalue(".aiff",$_GET['url'])||checkvalue(".au",$_GET['url'])||checkvalue(".m4a",$_GET['url']))
   {
-      $url=$information['site_url'] .str_replace("./","/",$localdir).urlencode($_GET['url']);
+      $url=$information['site_url'] .str_replace("./","/",$localdir)."/".rawurlencode(substr_replace(urldecode($_GET['url']),"",0,1));
       echo "<div class=container><audio controls autoplay width=100% src='".$url ."'".'>'."</audio></div>";
   }
   else if(checkvalue(".ppt",$_GET['url']) ||checkvalue(".pptx",$_GET['url'])||checkvalue(".doc",$_GET['url']) ||checkvalue(".docx",$_GET['url'])||checkvalue(".xls",$_GET['url'])||checkvalue(".xlsx",$_GET['url']))
   {
-        $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
-        $srcurl=urlencode($srcurl);
+        $srcurl= $information['site_url'].str_replace("./","/",$localdir).urldecode($_GET['url']);
+        $srcurl=rawurlencode($srcurl);
         $fileurl= "https://view.officeapps.live.com/op/embed.aspx?src=".$srcurl;
         echo "<div class=container style=height:700px><iframe  width='100%' height='800px' frameborder='0' src='".$fileurl."'".'>'."</iframe></div>";
  
   }
   else if(checkvalue(".md",$_GET['url']))
   {
-        $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        // $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        $srcurl=$information['site_url'] .str_replace("./","/",$localdir)."/".rawurlencode(substr_replace(urldecode($_GET['url']),"",0,1));
         $mdfile=file_get_contents($srcurl);
         $mdfile=strToUtf8($mdfile);
         echo "<div class=container>";
@@ -219,7 +220,8 @@ video {
   }
   else if(checkvalue(".txt",$_GET['url']))
   {
-        $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        // $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        $srcurl= $information['site_url'] .str_replace("./","/",$localdir)."/".rawurlencode(substr_replace(urldecode($_GET['url']),"",0,1));
         $handle = fopen($localdir.$_GET["url"],"r");
         $content = '';
         while(!feof($handle)){
@@ -235,11 +237,12 @@ video {
   }
   else if(checkvalue(".cpp",$_GET['url'])||checkvalue(".c",$_GET['url'])||checkvalue(".java",$_GET['url'])||checkvalue(".cs",$_GET['url'])||checkvalue(".py",$_GET['url'])||checkvalue(".h",$_GET['url'])||checkvalue(".hpp",$_GET['url'])||checkvalue(".hxx",$_GET['url'])||checkvalue(".cc",$_GET['url'])||checkvalue(".cxx",$_GET['url'])||checkvalue(".html",$_GET['url'])||checkvalue(".css",$_GET['url'])||checkvalue(".php",$_GET['url'])||checkvalue(".vbp",$_GET['url'])||checkvalue(".frm",$_GET['url'])||checkvalue(".ctl",$_GET['url'])||checkvalue(".bas",$_GET['url'])||checkvalue(".cls",$_GET['url'])||checkvalue(".sql",$_GET['url'])||checkvalue(".go",$_GET['url'])||checkvalue(".json",$_GET['url'])||checkvalue(".sh",$_GET['url'])||checkvalue(".htm",$_GET['url'])||checkvalue(".cmd",$_GET['url'])||checkvalue(".bat",$_GET['url']))
   {
-        $srcurl=$information['site_url'] .str_replace("./","/",$localdir).urlencode($_GET['url']);
+        $srcurl=$information['site_url'] .str_replace("./","/",$localdir).rawurlencode(urldecode($_GET['url']));
         echo "<div class=container>";
         echo "<div class='typo subbox table-fluid'>";
         echo "<table class='table  table-hover table-striped' style='height:90%;'><tr><th>Code</th></tr><tr><td><pre width=100% class='prettyprint linenums'>";
-        $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        // $srcurl= $information['site_url'].str_replace("./","/",$localdir).$_GET["url"];
+        $srcurl= $information['site_url'] .str_replace("./","/",$localdir)."/".rawurlencode(substr_replace(urldecode($_GET['url']),"",0,1));
         $handle = fopen($localdir.$_GET["url"], 'r');
         $codefile = '';
         while(!feof($handle)){
