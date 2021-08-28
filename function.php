@@ -57,7 +57,7 @@ function scandirs($dirvalue)
                                  if(checkvalue(".png",$value)==true || checkvalue(".jpg",$value)==true || checkvalue(".gif",$value)==true|| checkvalue(".jpeg",$value)==true || checkvalue(".bmp",$value)==true)
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                         
@@ -65,49 +65,49 @@ function scandirs($dirvalue)
                                     else if(checkvalue(".mp4",$value) || checkvalue(".webp",$value) || checkvalue(".ogg",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
                                     else if(checkvalue(".xml",$value)==true)
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
                                     else if(checkvalue(".ppt",$value) ||checkvalue(".pptx",$value)||checkvalue(".doc",$value) ||checkvalue(".docx",$value)||checkvalue(".xls",$value)||checkvalue(".xlsx",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     } 
                                     else if(checkvalue(".mp3",$value)||checkvalue(".wav",$value)||checkvalue(".mid",$value)||checkvalue(".aiff",$value)||checkvalue(".midi",$value)||checkvalue(".au",$value)||checkvalue(".m4a",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
                                     else if(checkvalue(".md",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     } 
                                     else if(checkvalue(".txt",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
                                     else if(checkvalue(".cpp",$value)||checkvalue(".c",$value)||checkvalue(".java",$value)||checkvalue(".cs",$value)||checkvalue(".py",$value)||checkvalue(".h",$value)||checkvalue(".hpp",$value)||checkvalue(".hxx",$value)||checkvalue(".cc",$value)||checkvalue(".cxx",$value)||checkvalue(".html",$value)||checkvalue(".css",$value)||checkvalue(".php",$value)||checkvalue(".vbp",$value)||checkvalue(".frm",$value)||checkvalue(".ctl",$value)||checkvalue(".bas",$value)||checkvalue(".cls",$value)||checkvalue(".sql",$value)||checkvalue(".go",$value)||checkvalue(".json",$value)||checkvalue(".sh",$value)||checkvalue(".htm",$value)||checkvalue(".bat",$value)||checkvalue(".cmd",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
@@ -139,7 +139,7 @@ function scandirs($dirvalue)
                                     if(checkvalue(".png",$value)==true || checkvalue(".jpg",$value)==true || checkvalue(".gif",$value)==true|| checkvalue(".jpeg",$value)==true || checkvalue(".bmp",$value)==true)
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                         
@@ -147,49 +147,49 @@ function scandirs($dirvalue)
                                     else if(checkvalue(".mp4",$value) || checkvalue(".webp",$value) || checkvalue(".ogg",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
                                     else if(checkvalue(".xml",$value)==true)
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
                                     else if(checkvalue(".ppt",$value) ||checkvalue(".pptx",$value)||checkvalue(".doc",$value) ||checkvalue(".docx",$value)||checkvalue(".xls",$value)||checkvalue(".xlsx",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     } 
                                     else if(checkvalue(".mp3",$value)||checkvalue(".wav",$value)||checkvalue(".mid",$value)||checkvalue(".aiff",$value)||checkvalue(".midi",$value)||checkvalue(".au",$value)||checkvalue(".m4a",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
                                     else if(checkvalue(".md",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     } 
                                     else if(checkvalue(".txt",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
                                     else if(checkvalue(".cpp",$value)||checkvalue(".c",$value)||checkvalue(".java",$value)||checkvalue(".cs",$value)||checkvalue(".py",$value)||checkvalue(".h",$value)||checkvalue(".hpp",$value)||checkvalue(".hxx",$value)||checkvalue(".cc",$value)||checkvalue(".cxx",$value)||checkvalue(".html",$value)||checkvalue(".css",$value)||checkvalue(".php",$value)||checkvalue(".vbp",$value)||checkvalue(".frm",$value)||checkvalue(".ctl",$value)||checkvalue(".bas",$value)||checkvalue(".cls",$value)||checkvalue(".sql",$value)||checkvalue(".go",$value)||checkvalue(".json",$value)||checkvalue(".sh",$value)||checkvalue(".htm",$value)||checkvalue(".bat",$value)||checkvalue(".cmd",$value))
                                     {
                                         $siteurl=str_replace("//", "/", $f . '/' . $value);
-                                        $siteurl=urlencode($siteurl);
+                                        $siteurl=rawurlencode($siteurl);
                                         $imgurl=$information['site_url'] . '/media.php?url=' .$siteurl ;
                                         printbutton($value,$imgurl);
                                     }
