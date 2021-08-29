@@ -49,7 +49,6 @@ function scandirs($dirvalue)
                                 
                                 if(is_dir($sub_path))
                                 {
-                                    
                                     $url= $information['site_url']  ."/".rawurlencode(substr_replace(urldecode(str_replace("//", "/", $f . '/' . $value)),"",0,1)). '" ' . $download_p . '>' ." &nbsp; ". $value;
                                     echo '<td><i class="mdui-icon material-icons">&#xe2c7;</i><a href="' .$url. '</a></td>';
                                 }
@@ -132,7 +131,8 @@ function scandirs($dirvalue)
                                 
                                 if(is_dir($sub_path))
                                 {
-                                    $url= $information['site_url']  ."?f=/".rawurlencode(substr_replace(urldecode(str_replace("//", "/", $f . '/' . $value)),"",0,1)). '" ' . $download_p . '>' ." &nbsp; ". $value;
+                                    $url= $information['site_url']  ."?f=/".rawurlencode(substr_replace(rawurldecode(str_replace("//", "/", $f . '/' . $value)),"",0,1)). '" ' . $download_p . '>' ." &nbsp; ". $value;
+                                    echo $url;
                                     echo '<td><i class="mdui-icon material-icons">&#xe2c7;</i><a href="' . $url . '</a></td>';
                                 }
                                 else
