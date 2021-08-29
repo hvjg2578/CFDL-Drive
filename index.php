@@ -48,7 +48,8 @@ else  $page_title = 'Index of ' . $f;
                 else $p = rawurlencode(dirname($f));
                 if ($rewrite) 
                 {
-                echo '<td><i class="mdui-icon material-icons">&#xe317;</i><a href="' . $information['site_url'] . $p . '">&nbsp; 上级目录</a></td>';
+                    
+                echo '<td><i class="mdui-icon material-icons">&#xe317;</i><a href="' . $information['site_url'] . "/".rawurlencode(substr_replace(urldecode($p),"",0,1)) . '">&nbsp; 上级目录</a></td>';
                     
                 }
                 else 
