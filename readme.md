@@ -19,6 +19,7 @@ http://demo.cfdl.1314.cool/
 
 GitHub仓库：https://github.com/hvjg2578/CFDL-Drive
 
+Gitee仓库：https://gitee.com/chenchuanrui/CFDL-Drive
 
 ### 这是一个非常简洁的说明
 
