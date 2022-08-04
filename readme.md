@@ -1,6 +1,6 @@
 # Chuanrui File Directory List System 即Chuanrui 文件目录列表系统 简称 CFDL
 
-Chuanrui 文件目录列表系统 简称 CFDL，是一款类似于h5ai的开源文件目录列表系统
+Chuanrui 文件目录列表系统 简称 CFDL，是一款类似于h5ai的开源文件目录列表系统，可以实现基于下载站的服务，并且支持设置密码。
 
 ### DEMO
 
